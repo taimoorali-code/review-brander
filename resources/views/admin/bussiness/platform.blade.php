@@ -54,7 +54,6 @@
                         <thead>
                             <tr>
                                 <th>Platform</th>
-                                <th>Email</th>
                                 <th>Status</th>
                                 <th>Connected On</th>
                                 <th>Action</th>
@@ -64,7 +63,6 @@
                             @forelse($platforms as $platform)
                             <tr>
                                 <td>{{ $platform->name }}</td>
-                                <td>{{ $platform->email ?? '-' }}</td>
                                 <td>
                                     @if($platform->status === 'connected')
                                     <span class="btn btn-success btn-sm px-3 py-1">Connected</span>
