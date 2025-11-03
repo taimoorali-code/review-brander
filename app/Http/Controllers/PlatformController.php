@@ -51,20 +51,15 @@ class PlatformController extends Controller
 
         $validated['business_id'] = $business->id;
         $validated['connected_on'] = Carbon::now();
-        $validated['status'] = 'connected';
+        $validated['status'] = 'disconnected';
 
         $platform = Platform::create($validated);
 
-        if ($request->wantsJson()) {
-            return response()->json([
-                'message' => 'Platform connected successfully.',
-                'platform' => $platform
-            ], 201);
-        }
+       
 
         return redirect()
             ->route('platform.index', $business->id)
-            ->with('success', 'Platform connected successfully.');
+            ->with('success', 'Platform Added  successfully. Please proceed to connect it.');
     }
 
     /**

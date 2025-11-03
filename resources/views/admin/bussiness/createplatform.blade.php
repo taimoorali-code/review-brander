@@ -71,7 +71,7 @@
                             <input type="text" name="name" class="form-control" required>
                         </div>
 
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label class="form-label">Email (optional)</label>
                             <input type="email" name="email" class="form-control">
                         </div>
@@ -79,7 +79,7 @@
                         <div class="mb-3">
                             <label class="form-label">Credentials (JSON format)</label>
                             <textarea name="credentials" class="form-control" rows="4" placeholder='{"api_key": "xyz", "account_id": "123"}'></textarea>
-                        </div>
+                        </div> -->
 
                         <button type="submit" class="btn btn-primary">Connect Platform</button>
                     </form>
