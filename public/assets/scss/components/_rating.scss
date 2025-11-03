@@ -1,0 +1,22 @@
+.rating-wrap {
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 5px !important;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      span {
+        color: $yellow;
+        font-size: 22px;
+      }
+    }
+  }
+}
+.rc-star {
+  font-size: 14px !important;
+  color: white !important;
+  background: #219653;
+  padding: 3px;
+}

@@ -1,0 +1,142 @@
+.company-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.company-item {
+  position: relative;
+  background-color: #fff;
+  padding: 20px 16px 10px 16px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+
+  .company-tag {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    span {
+      display: inline-block;
+      background-color: #effdef;
+      padding: 4px 6px;
+      color: #34be27;
+      border-radius: 50px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+  }
+
+  .company-name {
+    display: flex;
+    .company-logo {
+      margin-right: 16px;
+    }
+    .company-detail {
+      h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 3px;
+      }
+
+      .location {
+        font-size: 15px;
+        color: $black;
+        font-weight: 300;
+        margin-top: 3px;
+      }
+    }
+  }
+
+  .toggle-review {
+    text-align: center;
+    margin-top: 12px;
+    a {
+      color: #898989;
+    }
+  }
+}
+
+.pagination {
+  .page-item {
+    .page-link {
+      border-color: $primary;
+      font-size: 14px;
+      color: #2c2c2c;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: $primary;
+      }
+    }
+
+    &.active {
+      .page-link {
+        color: #fff;
+        background-color: $primary;
+      }
+    }
+  }
+}
+
+.company-reviews-wrap {
+  background-color: #f4f4f4;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+.company-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: $radius;
+
+  &.with-border {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &.style-horizontal {
+    padding: 10px 18px;
+
+    .rating-wrap {
+      margin-top: -18px;
+    }
+
+    .name-detail {
+      display: flex;
+      gap: 10px;
+      .name {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .name-detail {
+    .logo {
+      img {
+        width: 40px;
+      }
+    }
+
+    .name {
+      margin-top: 16px;
+      h4 {
+        font-size: 16px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .company-card {
+    margin-bottom: 20px;
+  }
+  .company-title {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}

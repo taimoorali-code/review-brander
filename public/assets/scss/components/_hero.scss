@@ -1,0 +1,80 @@
+.hero-section {
+  .hero-left {
+    padding: 100px 0;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(100, 181, 246, 0.3) 0%,
+      rgba(144, 202, 249, 0) 100%
+    );
+
+    h1 {
+      font-size: 74px;
+      font-weight: 700;
+      color: $blue-dark;
+      line-height: 90px;
+      letter-spacing: 2px;
+
+      span {
+        color: $blue;
+      }
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 29px;
+      margin-bottom: 28px;
+    }
+  }
+}
+
+.hero-section {
+  .hero-right {
+    padding: 30px 0;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.hero-bg-right {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(251, 133, 0, 0.2) 0%,
+    rgba(251, 133, 0, 0) 100%
+  );
+  width: 500px;
+  height: 550px;
+  position: absolute;
+  top: 327px;
+  right: 1px;
+  margin-right: -104px;
+  max-width: 100%;
+}
+
+.hero-section {
+  .container {
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-bg-right {
+    width: 300px;
+    height: 300px;
+    margin-right: 0;
+  }
+  .hero-section {
+    .hero-left {
+      padding: 50px 0;
+      h1 {
+        font-size: 50px;
+        line-height: 60px;
+      }
+    }
+  }
+  .stores {
+    padding-bottom: 50px;
+  }
+}

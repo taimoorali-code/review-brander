@@ -1,0 +1,105 @@
+.investment-limit {
+  background: white;
+  padding: 22px 28px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px 4px #00000005;
+  p {
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    font-weight: 300;
+    margin-bottom: 5px;
+    span {
+      font-weight: 400;
+    }
+  }
+  h6 {
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    font-weight: 400;
+    margin-bottom: 5px;
+    span {
+      font-weight: 700;
+    }
+  }
+  .progress-bar {
+    background: $blue;
+  }
+}
+.limit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .icon {
+    span {
+      font-size: 35px;
+      color: #878787;
+    }
+  }
+}
+.investment-table {
+  background: white;
+  padding: 22px 28px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px 4px #00000005;
+}
+.table-contnet {
+  padding: 50px 0;
+  margin: auto;
+  max-width: 150px;
+  text-align: center;
+  span {
+    font-size: 55px;
+  }
+}
+.refer-earn-box {
+  background: linear-gradient(
+    177.87deg,
+    rgba(251, 133, 0, 0.1) 1.87%,
+    rgba(255, 255, 255, 0) 98.3%
+  );
+  padding: 22px 28px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px 4px #00000005;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+  }
+}
+.gift-icon {
+  font-size: 34px;
+  color: $blue;
+}
+.flex-invest-link {
+  padding: 10px 10px 10px 50px;
+  background: #efe3e3;
+  border-radius: 12px;
+  position: relative;
+  .lock-icon {
+    span {
+      position: absolute;
+      top: 10px;
+      left: 17px;
+      color: #219653;
+    }
+  }
+}
+.cart-icon {
+  span {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .investment-table {
+    width: 100%;
+    overflow-x: scroll;
+    text-wrap: nowrap;
+  }
+}

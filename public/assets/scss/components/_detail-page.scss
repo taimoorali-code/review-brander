@@ -1,0 +1,21 @@
+.page-title {
+  p {
+    color: $blue;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 70px;
+    font-weight: bold;
+    span {
+      color: $primary;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .page-title {
+    h1 {
+      font-size: 42px;
+    }
+  }
+}

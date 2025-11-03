@@ -1,0 +1,111 @@
+.button {
+  display: inline-block;
+  padding: 8px 18px;
+  text-align: center;
+  border: 1px solid transparent;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.4s ease;
+  &.button-primary {
+    background-color: $primary;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      border-color: $primary;
+      background-color: transparent;
+      color: $primary;
+    }
+  }
+  &.button-secondary {
+    background-color: white;
+    color: $primary;
+  }
+  &.button-outline-primary {
+    border-color: $primary;
+    color: $primary;
+    &:hover,
+    &:focus {
+      border-color: $primary;
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+  &.button-outline-secondary {
+    border-color: white;
+    color: white;
+  }
+  &.button-round {
+    border-radius: $radius;
+  }
+  &.button-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    i {
+      font-size: 20px;
+    }
+  }
+}
+
+// .button {
+//   position: relative;
+//   overflow: hidden;
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     background-color: rgba(0, 0, 0, 0.1);
+//     width: 10%;
+//     height: 25%;
+//     border-radius: 50%;
+//     z-index: 1;
+//     top: 35%;
+//     left: 45%;
+//     transform: scale(0);
+//     transition: transform 0.5s, border-radius 0.5s 0.5s;
+//   }
+
+//   &:hover::before {
+//     transform: scale(12);
+//   }
+// }
+
+.button {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 10%;
+    height: 25%;
+    border-radius: 50%;
+    z-index: 1;
+    top: 35%;
+    left: 45%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  &:hover {
+    &::before {
+      -webkit-transform: scale(12);
+      transform: scale(12);
+      -webkit-transition: border-radius 0.5s 0.5s, -webkit-transform 0.5s;
+      transition: border-radius 0.5s 0.5s, -webkit-transform 0.5s;
+      transition: transform 0.5s, border-radius 0.5s 0.5s;
+      transition: transform 0.5s, border-radius 0.5s 0.5s,
+        -webkit-transform 0.5s;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+  }
+}

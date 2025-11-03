@@ -1,0 +1,42 @@
+.ellips {
+  width: 540px;
+  height: 540px;
+  bottom: 0;
+  position: absolute;
+  z-index: -1;
+  &.left {
+    border-radius: 260px 260px 250px 0px;
+    left: 0;
+  }
+  &.green {
+    background-color: #57cc9980;
+  }
+
+  &.right {
+    border-radius: 260px 260px 0px 250px;
+    right: 0;
+  }
+  &.yellow {
+    background-color: rgba(251, 133, 0, 0.5);
+  }
+  &.blue {
+    background-color: rgba(25, 118, 210, 0.5);
+  }
+
+  &.bot-100 {
+    bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ellips {
+    width: 300px;
+    height: 300px;
+    bottom: unset;
+    top: 0;
+  }
+  .ellips-image-wrap {
+    padding: 0 !important;
+    text-align: center;
+  }
+}

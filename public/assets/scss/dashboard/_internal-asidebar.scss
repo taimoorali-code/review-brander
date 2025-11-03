@@ -1,0 +1,141 @@
+.asidebar {
+  width: 325px;
+  background-color: #ffffff;
+  height: calc(100vh - 63px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  .internal-logo {
+    text-align: center;
+    padding: 40px 0;
+    img {
+      width: 180px;
+    }
+  }
+  .asidebar-top {
+    padding: 55px 38px;
+    width: 100%;
+    .internal-icon {
+      li {
+        a {
+          span {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+  .asidebar-bottom {
+    padding: 30px 38px 0px 38px;
+    background-color: #1976d21a;
+    border-radius: 12px 12px 0 0;
+    width: 100%;
+    .internal-icon {
+      li {
+        a {
+          span {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+  .internal-icon {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 4px 0;
+        padding: 8px;
+        &:hover,
+        &.active {
+          background-color: #e3f2fd;
+          transition: all 0.5s;
+          border-radius: 6px;
+          color: $blue;
+        }
+      }
+    }
+  }
+  .asidebar-copyright {
+    padding: 15px 0;
+    p {
+      margin: 0;
+      text-align: center;
+      font-size: 16px;
+      color: #a5a5a5;
+    }
+  }
+}
+
+.d-aside-right-bar {
+  display: flex;
+  height: 100%;
+}
+
+.right-bar {
+  width: 100%;
+  margin: 20px 20px 50px 20px;
+  border-radius: $radius;
+  background-color: white;
+  .internal-content {
+    padding: 20px;
+    .internal-heading {
+      h3 {
+        font-size: 24px;
+        line-height: 29px;
+        color: #1976d2;
+        font-weight: 700;
+        border-bottom: 1px solid #efefef;
+        padding-bottom: 15px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.admin-content-right {
+  width: 100%;
+  padding: 30px 30px 100px 30px;
+  height: 100%;
+  overflow-y: scroll;
+}
+.document-icon {
+  line-height: 0;
+  span {
+    color: #1976d2;
+  }
+}
+@media screen and (max-width: 767px) {
+  #main {
+    height: auto;
+  }
+  .d-aside-right-bar {
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .admin-properties-right {
+    overflow-y: auto;
+  }
+  .transaction-table {
+    width: 100%;
+    overflow-x: scroll;
+    text-wrap: nowrap;
+  }
+  .theme-box {
+    flex-wrap: wrap;
+  }
+  .asidebar-top {
+    width: 100%;
+  }
+  .asidebar-bottom {
+    width: 100%;
+  }
+}

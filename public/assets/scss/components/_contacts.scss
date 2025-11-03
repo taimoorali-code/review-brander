@@ -1,0 +1,39 @@
+.contacts {
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: #878787;
+    margin-bottom: 3px;
+  }
+  ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      margin-right: 5px;
+      a {
+        text-decoration: none;
+        color: rgba(0,0,0,0.6);
+      }
+    }
+  }
+  h6 {
+    font-size: 14px;
+    margin-top: 3px;
+  }
+}
+.ralevant {
+  span {
+    color: #33be26;
+    background-color: #f0fdef;
+    padding: 3px 12px;
+    border-radius: 22px;
+    font-size: 12px;
+    margin-left: 63px;
+    font-weight: 600;
+    position: absolute;
+    top: 14px;
+    right: 15px;
+  }
+}

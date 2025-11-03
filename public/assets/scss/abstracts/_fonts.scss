@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Calibri";
+  src: url("../fonts/Calibri.woff2") format("woff2"),
+    url("../fonts/Calibri.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("../fonts/Calibri-Bold.woff2") format("woff2"),
+    url("../fonts/Calibri-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("../fonts/Calibri-Light.woff2") format("woff2"),
+    url("../fonts/Calibri-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}

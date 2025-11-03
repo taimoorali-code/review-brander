@@ -1,0 +1,39 @@
+.theme-tab {
+  .nav-tabs {
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    gap: 10px;
+    .nav-item {
+      a {
+        color: #2c2c2c;
+        background-color: #ededed;
+        text-align: center;
+        border: none;
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: 400;
+        border-radius: 4px;
+        span {
+          font-size: 12px;
+          background: #0f53e3;
+          padding: 1px 5px;
+          border-radius: 15px;
+          color: white;
+        }
+      }
+    }
+    .active {
+      background-color: $blue !important;
+      color: white !important;
+      border-radius: 4px;
+    }
+  }
+}
+.tab-list {
+  max-width: 330px;
+  border: 1px solid #ededed;
+  padding: 10px;
+  border-radius: $radius;
+  margin: 30px auto;
+}

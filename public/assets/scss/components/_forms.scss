@@ -1,0 +1,141 @@
+.form-group {
+  label {
+    margin-bottom: 6px;
+  }
+
+  &.input-icon {
+    position: relative;
+
+    .form-control {
+      padding-left: 34px;
+    }
+
+    i {
+      position: absolute;
+      top: 7px;
+      left: 10px;
+    }
+  }
+}
+
+.rate {
+  &:not(:checked) {
+    > input {
+      position: absolute;
+      top: -9999px;
+    }
+    > label {
+      float: right;
+      width: 1em;
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: 30px;
+      color: #999999;
+      &:before {
+        content: "★ ";
+      }
+      &:hover {
+        color: $yellow;
+        ~ {
+          label {
+            color: $yellow;
+          }
+        }
+      }
+    }
+  }
+  > input {
+    &:checked {
+      ~ {
+        label {
+          color: #ffc700;
+          &:hover {
+            color: #c59b08;
+            ~ {
+              label {
+                color: #c59b08;
+              }
+            }
+          }
+        }
+      }
+      + {
+        label {
+          &:hover {
+            color: #c59b08;
+            ~ {
+              label {
+                color: #c59b08;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  > label {
+    &:hover {
+      ~ {
+        input {
+          &:checked {
+            ~ {
+              label {
+                color: #c59b08;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-check-input:checked {
+  background-color: $blue;
+  border-color: $blue;
+}
+
+.reg-form {
+  background-color: #e8f0ff;
+}
+.form-pre-reg {
+  background-color: white;
+  padding: 50px;
+  border-radius: $radius;
+}
+
+.inforamtion-form {
+  padding: 30px 40px;
+  border-radius: $radius;
+  background-color: #ffffff;
+  .form-control {
+    padding: 10px;
+    border: 1.17px solid #d0d0d0;
+  }
+  p {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #000000;
+  }
+  label {
+    color: #414141;
+  }
+  .upload-property-img {
+    position: relative;
+    img {
+      border-radius: 4px;
+    }
+    .close-icon {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+  .upload-property-img:hover .close-icon {
+    opacity: 1;
+  }
+}

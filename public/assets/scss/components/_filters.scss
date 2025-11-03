@@ -1,0 +1,99 @@
+.filter-box {
+  margin-top: 20px;
+
+  h4 {
+    font-size: 16px;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+  }
+}
+
+.company-status-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    label {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    span {
+      color: #878787;
+    }
+
+    i {
+      color: #878787;
+      font-size: 18px;
+    }
+  }
+}
+
+.filter-inline {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  &.end {
+    justify-content: flex-end;
+  }
+
+  .filter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    a {
+      color: $gray;
+    }
+    label {
+      white-space: nowrap;
+    }
+
+    .star-filter {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      li {
+        i {
+          font-size: 30px;
+          color: $yellow;
+        }
+      }
+    }
+
+    .separator {
+      span {
+        display: inline-block;
+        height: 30px;
+        width: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+.filter-button {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .company-title {
+    .filter-category {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin: 25px 0 15px 0;
+      .filter-button {
+        display: block;
+        button {
+          padding: 6px 47px;
+        }
+      }
+    }
+  }
+}

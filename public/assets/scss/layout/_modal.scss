@@ -1,0 +1,64 @@
+.close-icon {
+  position: absolute;
+  background: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.verify-img {
+  img {
+    width: 100%;
+  }
+}
+.verify-card {
+  background-color: white;
+  padding: 26px;
+  h2 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 600;
+    margin: 25px 0 13px 0;
+  }
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    input {
+      display: block;
+      border-radius: 4px;
+      max-width: 82px;
+      height: 65px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      outline: none;
+      text-align: center;
+      font-size: 36px;
+    }
+  }
+}
+.verify-button {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 20px 0;
+  button {
+    flex: 1;
+  }
+  .otp-resend {
+    color: red;
+    background-color: white;
+  }
+}
+.footer-text {
+  h6 {
+    font-size: 12px;
+  }
+}
+.modal-body {
+  padding: 0;
+}

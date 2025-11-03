@@ -1,0 +1,52 @@
+.transaction-table {
+  background: white;
+  padding: 22px 28px;
+  border-radius: 12px;
+}
+.table {
+  th {
+    font-size: 21px;
+    font-weight: 700;
+    color: $blue-dark;
+  }
+  td {
+    font-size: 18px;
+    font-weight: 400;
+    color: #1a1c1e;
+    padding: 10px;
+  }
+  tr:nth-child(even) {
+    td {
+      background-color: #f9f9f9;
+      padding: 8px;
+    }
+  }
+  th {
+    background: #e1e4e7;
+    padding: 8px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .internal-header {
+    padding: 10px 20px 10px 20px;
+    button {
+      svg {
+        width: 30px;
+      }
+    }
+    .menu {
+      position: relative;
+    }
+    .internal-logo img {
+      width: 140px;
+    }
+    .internal-right {
+      gap: 15px;
+      margin-left: 50px;
+    }
+  }
+  .flex-invest-link {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}

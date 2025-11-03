@@ -1,0 +1,171 @@
+.mission-section {
+  margin: 70px 0;
+  background: linear-gradient(
+    180deg,
+    rgba(144, 202, 249, 0) 6.14%,
+    rgba(100, 181, 246, 0.3) 64.81%
+  );
+
+  h1 {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+  }
+  img {
+    border: 8px solid white;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+  }
+}
+.vision-section {
+  h2 {
+    max-width: 700px;
+    margin: auto;
+    letter-spacing: -2px;
+  }
+  .vision-text {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 300;
+    span {
+      font-weight: 700;
+    }
+  }
+}
+.feature-section {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.leadership-team {
+  background-color: #00000008;
+  h4 {
+    max-width: 900px;
+    margin: auto;
+    font-size: 26px;
+    line-height: 31px;
+    font-weight: 300;
+    color: $blue-dark;
+  }
+}
+.leaders {
+  padding: 15px 18px;
+  border-radius: $radius;
+  background-color: white;
+  p {
+    font-size: 20px;
+  }
+}
+.compliant-section {
+  padding: 100px 0;
+  .compliant-info {
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      rgba(204, 204, 204, 0.1) 6.14%,
+      rgba(100, 181, 246, 0.5) 77.81%
+    );
+    height: 600px;
+    border-radius: $radius;
+    .compliant-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .compliant-icon {
+      position: absolute;
+      left: 34%;
+      top: 44px;
+    }
+  }
+  p {
+    color: #606060;
+  }
+}
+.download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  .download-item {
+    background: $blue-dark;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+.member-section {
+  background-color: $blue-dark;
+}
+.started {
+  h1 {
+    font-size: 60px;
+    line-height: 47px;
+    color: $blue-dark;
+    font-weight: 700;
+  }
+}
+.started-left {
+  padding: 100px 0;
+}
+.started-right {
+  background-color: #57cc9980;
+  width: 552px;
+  height: 527px;
+  border-radius: $radius;
+}
+.started-right-img {
+  position: absolute;
+  top: 110px;
+  right: 158px;
+}
+
+@media screen and (max-width: 767px) {
+  .mission-section {
+    margin: 50px 0 0 0;
+  }
+  .vision-section {
+    .vision-text {
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+    }
+  }
+  .leadership-team {
+    h4 {
+      font-size: 22px;
+      line-height: 24px;
+    }
+  }
+  .leaders p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .compliant-section {
+    padding: 30px 0;
+  }
+  .started-right {
+    background-color: rgba(87, 204, 153, 0.5019607843);
+    width: 350px;
+    height: 420px;
+    border-radius: 12px;
+  }
+  .started-right-img {
+    position: absolute;
+    top: 576px;
+    right: 10px;
+  }
+  .started-left {
+    padding: 0;
+    h1 {
+      font-size: 42px;
+      line-height: 40px;
+    }
+  }
+}

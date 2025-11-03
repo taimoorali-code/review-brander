@@ -1,0 +1,92 @@
+.reviews-section {
+  padding-top: 100px;
+}
+.review-info {
+  display: flex;
+  gap: 20px;
+  box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.01);
+}
+
+.review-card {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ededed;
+  padding: 28px;
+
+  > .rating-wrap {
+    margin: -14px 0 0 47px;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #00000099;
+  }
+  h6 {
+    font-size: 18px;
+    line-height: 24px;
+    color: #5a616e;
+    font-weight: 400;
+  }
+}
+
+.rc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rc-body {
+  .rc-time {
+    margin-top: 2px;
+    color: $gray;
+    font-size: 13px;
+  }
+}
+.footer-rc {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  h5 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 300;
+    color: #5a616e;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-rc {
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  .review-info {
+    flex-direction: column;
+  }
+  .selling-card {
+    padding: 40px 20px;
+    h6 {
+      width: 274px;
+    }
+  }
+  .property-provision {
+    .container {
+      .ppbg-left {
+        width: 0px;
+        height: 0px;
+      }
+      .ppbg-right {
+        width: 0px;
+        height: 0px;
+      }
+      .ppbg-mid {
+        width: 498px;
+        height: 700px;
+        position: absolute;
+        top: -37px;
+        left: 124px;
+      }
+    }
+  }
+}

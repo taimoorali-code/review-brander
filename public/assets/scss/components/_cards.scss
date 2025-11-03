@@ -1,0 +1,120 @@
+.theme-card {
+  background-color: #fff;
+  border-radius: $radius;
+  padding: 10px;
+  border: 1px solid #00000033;
+  .card-content {
+    h4 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21px;
+      color: #000000;
+      margin: 15px 0;
+    }
+    h5 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21px;
+      color: $blue;
+    }
+  }
+  .card-info {
+    padding: 0;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      li {
+        a {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          line-height: 17px;
+          color: #000000;
+          font-weight: 400;
+          img {
+            width: 14px;
+            margin-right: 5px;
+          }
+          span {
+            font-size: 14px;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.properties-cards {
+  padding-bottom: 80px;
+}
+.theme-boxes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.theme-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 22px 28px;
+  border-radius: 12px;
+  flex: 1;
+  box-shadow: 0px 0px 10px 4px #00000005;
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 21px;
+    color: #5a5a5a;
+    margin: 0;
+    span {
+      color: #ffffff;
+    }
+  }
+  h5 {
+    font-size: 26px;
+    color: #5a5a5a;
+    font-weight: 700;
+    line-height: 31px;
+    margin-bottom: 5px;
+  }
+  h6 {
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 400;
+    color: $blue;
+  }
+  .box-left {
+    &.text-left {
+      max-width: 270px;
+    }
+    span {
+      color: $blue;
+      margin-bottom: 5px;
+    }
+    h3 {
+      margin: 0;
+      line-height: 47px;
+      font-size: 36px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+  }
+  .box-right {
+    span {
+      font-size: 91px;
+      color: #ffffff;
+    }
+  }
+}
+.box-heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: $blue-dark;
+  text-align: start;
+  margin: 0;
+}
