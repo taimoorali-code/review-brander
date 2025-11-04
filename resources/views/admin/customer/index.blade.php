@@ -22,37 +22,37 @@
 
             <div class="admin-content-right">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h3>All Customers</h3>
+                                           <h2 class="box-heading mt-3">All Customers</h2>
 
-                    <div style="display: flex; gap: 5px; align-items: center;"> 
+                    <div style="display: flex; gap: 5px; align-items: center;">
                         <a href="{{ route('customers.create') }}" class="button button-outline-primary button-round">Add New Customer</a>
 
                         <!-- CSV Upload Button -->
                         <form id="importForm" action="{{ route('customers.import') }}" method="POST" enctype="multipart/form-data" style="display:inline-block;">
-    @csrf
-    <input type="file" id="csvFileInput" name="csv_file" accept=".csv" required style="display: none;">
-    
-    <button type="button" class="btn btn-success" id="importBtn">
-        <i class="bi bi-upload"></i> Import CSV
-    </button>
-</form>
+                            @csrf
+                            <input type="file" id="csvFileInput" name="csv_file" accept=".csv" required style="display: none;">
 
-<!-- Bootstrap Icons (optional for upload icon) -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+                            <button type="button" class="btn btn-success" id="importBtn">
+                                <i class="bi bi-upload"></i> Import CSV
+                            </button>
+                        </form>
 
-<script>
-    // Trigger file picker when button clicked
-    document.getElementById('importBtn').addEventListener('click', function() {
-        document.getElementById('csvFileInput').click();
-    });
+                        <!-- Bootstrap Icons (optional for upload icon) -->
+                        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    // Auto-submit when a file is chosen
-    document.getElementById('csvFileInput').addEventListener('change', function() {
-        if (this.files.length > 0) {
-            document.getElementById('importForm').submit();
-        }
-    });
-</script>
+                        <script>
+                            // Trigger file picker when button clicked
+                            document.getElementById('importBtn').addEventListener('click', function() {
+                                document.getElementById('csvFileInput').click();
+                            });
+
+                            // Auto-submit when a file is chosen
+                            document.getElementById('csvFileInput').addEventListener('change', function() {
+                                if (this.files.length > 0) {
+                                    document.getElementById('importForm').submit();
+                                }
+                            });
+                        </script>
 
                     </div>
                 </div>

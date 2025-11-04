@@ -78,7 +78,7 @@
                                 <tr>
                                     <th>Bussiness</th>
                                     <th>Industry</th>
-                                    <th>Reviews</th>
+                                    <th>PlatForm</th>
                                     <th>Action</th>
 
                                     <!-- No Action header -->
@@ -89,13 +89,32 @@
                                 <tr>
                                     <td>{{ $bussines->name }}</td>
                                     <td>{{ $bussines->industry ?? 'N/A' }}</td>
-                                    <td> <a href="{{route('reviews.index', $bussines->id)}}">reviews</a></td>
                                     <td>
                                         <a href="{{ route('platform.index', $bussines->id) }}" class="text-primary" title="View Details">
                                             <span class="material-symbols-outlined" style="visibility:hidden;">chevron_right</span>
                                             <noscript><span>&rsaquo;</span></noscript>
                                         </a>
                                     </td>
+                                   <td>
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route('bussiness.edit', $bussines->id) }}" class="btn btn-warning btn-sm">
+                                            Edit
+                                        </a>
+
+                                        <form action="{{ route('bussiness.destroy', $bussines->id) }}"
+                                            method="POST"
+                                            onsubmit="return confirm('Delete this Bussines?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                         
+
+                                    </div>
+                                   
+
+
+                                </td>
                                 </tr>
                                 @endforeach
                             </tbody>

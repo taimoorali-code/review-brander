@@ -54,4 +54,68 @@ class BusinessController extends Controller
 
         return view('admin.bussiness.show', compact('bussiness'));
     }
+    public function edit($id)
+    {
+        $business = Business::findOrFail($id);
+        return view('admin.bussiness.edit', compact('business'));
+    }
+
+
+  public function update(Request $request, $id)
+{
+    $business = \App\Models\Business::findOrFail($id);
+
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'industry' => 'nullable|string|max:255',
+    ]);
+
+    $business->update($validated);
+
+    if ($request->wantsJson()) {
+        return response()->json([
+            'message' => 'Business updated successfully',
+            'business' => $business
+        ]);
+    }
+
+    return redirect()
+        ->route('bussiness.index')
+        ->with('success', 'Business updated successfully.');
+}
+
+
+  public function destroy(Request $request, $id)
+{
+    try {
+        // Fetch business
+        $business = \App\Models\Business::findOrFail($id);
+
+        // Optional but recommended: ensure current user owns it
+        if ($business->user_id !== \Illuminate\Support\Facades\Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        // Delete business (and cascade if you’ve set up relations)
+        $business->delete();
+
+        // Handle API or web response
+        if ($request->wantsJson()) {
+            return response()->json(['message' => 'Business deleted successfully.']);
+        }
+
+        return redirect()
+            ->route('bussiness.index')
+            ->with('success', 'Business deleted successfully.');
+
+    } catch (\Throwable $e) {
+        // Handle errors gracefully
+        if ($request->wantsJson()) {
+            return response()->json(['error' => 'Failed to delete business', 'message' => $e->getMessage()], 500);
+        }
+
+        return back()->with('error', 'Failed to delete business: ' . $e->getMessage());
+    }
+}
+
 }

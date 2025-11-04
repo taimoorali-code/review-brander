@@ -4,11 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Student</title>
+    <title>Update Bussiness</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-        <link rel="stylesheet" href="/assets/css/style.css" />
-        <style>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" as="style" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        /* Reserve space for the icon before it loads */
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 1;
+        }
+    </style>
+    <style>
         .form-container {
             max-width: 600px;
             margin: 2rem auto;
@@ -30,13 +50,15 @@
             color: #555;
         }
 
-        .form-select, .form-control {
+        .form-select,
+        .form-control {
             height: 45px;
             border-radius: 5px;
             border: 1px solid #ccc;
         }
 
-        .form-control:focus, .form-select:focus {
+        .form-control:focus,
+        .form-select:focus {
             border-color: #4a90e2;
             box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
         }
@@ -71,41 +93,49 @@
 
 <body>
     <main id="main">
-     
-        <div class="d-aside-right-bar bg-grey">
-            @include('components.sidebar')
+
+    <div class="d-aside-right-bar bg-grey m-4">
             <div class="admin-content-right">
                 <div class="section-title">
-                    <h4>Update Bussiness</h4>
+                    <a href="{{route('bussiness.index')}}" class="text-primary"> <span class="material-symbols-outlined text-primary" style="visibility:hidden;">arrow_back</span>
+                        <noscript><span>&rsaquo;</span></noscript> Back</a>
                 </div>
-            
+
                 <div class="form-container">
                     <h2 class="form-title">Update Bussiness</h2>
-                    <form action="{{ route('drivers.update', $driver->id) }}" method="POST">
+                    <form action="{{ route('bussiness.update', $business->id) }}" method="POST">
                         @csrf
-                        @method('PATCH') <!-- Use PATCH for updates -->
-                        
-                        <!-- Driver Name Field -->
+                        @method('PUT')
+
                         <div class="mb-3">
-                            <label for="name" class="form-label">Bussiness Industry</label>
-                            <input type="text" id="name" name="name" class="form-control" value="{{ old('name', $driver->name) }}" required autofocus>
+                            <label for="name" class="form-label">Business Name</label>
+                            <input type="text" name="name" id="name" class="form-control"
+                                value="{{ old('name', $business->name) }}" required>
                         </div>
-                
-                        <!-- Email Field -->
-                      
-                
-                        <!-- Submit Button -->
-                        <div class="d-flex justify-content-between align-items-center mt-4">
-                            <button type="submit" class="form-submit">Update Bussiness</button>
+
+                        <div class="mb-3">
+                            <label for="industry" class="form-label">Business Industry</label>
+                            <input type="text" name="industry" id="industry" class="form-control"
+                                value="{{ old('industry', $business->industry) }}">
                         </div>
+
+                        <button type="submit" class="form-submit">Update Business</button>
                     </form>
+
+
                 </div>
-                
             </div>
-            
-            </div>
+
+        </div>
         </div>
     </main>
+    <script>
+        document.fonts.ready.then(() => {
+            document.querySelectorAll('.material-symbols-outlined').forEach(el => {
+                el.style.visibility = 'visible';
+            });
+        });
+    </script>
 </body>
 
 </html>

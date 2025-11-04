@@ -4,7 +4,7 @@
 
             <li>
                 <a href="{{ route('bussiness.index') }}"
-                   class="{{ request()->routeIs('bussiness.*') ? 'active' : '' }}">
+                    class="{{ request()->routeIs('bussiness.*') ? 'active' : '' }}">
                     <span class="material-symbols-outlined">
                         {{-- home --}}
                     </span>
@@ -14,7 +14,7 @@
 
             <li>
                 <a href="{{ route('customers.index') }}"
-                   class="{{ request()->routeIs('customers.*') ? 'active' : '' }}">
+                    class="{{ request()->routeIs('customers.*') ? 'active' : '' }}">
                     <span class="material-symbols-outlined">
                         {{-- finance_mode --}}
                     </span>
@@ -23,11 +23,11 @@
             </li>
 
             <li>
-               <a href="{{ route('reviews.index', config('app.default_business_id')) }}"
-   class="{{ request()->routeIs('reviews.*') ? 'active' : '' }}">
-    <span class="material-symbols-outlined"></span>
-    Reviews
-</a>
+                <a href="{{ route('reviews.all', config('app.default_business_id')) }}"
+                    class="{{ request()->routeIs('reviews.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined"></span>
+                    Reviews
+                </a>
 
             </li>
 

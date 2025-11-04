@@ -87,6 +87,10 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">Disconnect</button>
                                         </form>
+                                         <a href="{{ route('platform.google.connect', [$business->id, $platform->id]) }}" class="btn btn-success btn-sm">
+                                           Get Reviews
+                                        </a>
+
                                     </div>
                                     @else
                                     <a href="{{ route('platform.google.connect', [$business->id, $platform->id]) }}" class="btn btn-warning btn-sm">

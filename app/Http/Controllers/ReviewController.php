@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Business;
+use App\Models\Platform;
 use App\Models\Review;
 use App\Services\GoogleReviewService;
 use Illuminate\Http\Request;
@@ -11,13 +12,63 @@ use Carbon\Carbon;
 class ReviewController extends Controller
 {
 
+// public function getAllSavedReviews()
+// {
+//     try {
+//         // Get all reviews with related business info
+//         $reviews = Review::with('business')  // assuming relation defined: Review belongsTo Business
+//             ->orderBy('create_time', 'desc')
+//             ->get();
+
+//         // Calculate overall stats
+//         $averageRating = $reviews->avg('star_rating');
+//         $totalReviewCount = $reviews->count();
+
+//         // Get distinct businesses for filter/display
+//         $businesses = Business::whereIn('id', $reviews->pluck('business_id')->unique())->get();
+
+//         return view('admin.bussiness.reviews', [
+//             'businesses' => $businesses,
+//             'reviews'  => $reviewsData['reviews'] ?? [],
+//             'averageRating' => $reviewsData['averageRating'] ?? null,
+//             'totalReviewCount' => $reviewsData['totalReviewCount'] ?? null,
+//         ])->with('success', 'Reviews fetched and saved successfully!');
+
+//     } catch (\Throwable $e) {
+//         return back()->with('error', 'Failed to load saved reviews: ' . $e->getMessage());
+//     }
+// }
+public function getAllSavedReviews()
+{
+    try {
+        // Get all reviews + related business (if exists)
+        $reviews = Review::with('business')
+            ->orderBy('create_time', 'desc')
+            ->get();
+
+        // Decode raw_data JSON for each review
+        $decodedReviews = $reviews->map(function ($review) {
+            $data = json_decode($review->raw_data, true) ?? [];
+            $data['business_name'] = $review->business->name ?? 'Unknown';
+            return $data;
+        });
+
+        return view('admin.bussiness.reviews', [
+            'reviews' => $decodedReviews,
+        ]);
+
+    } catch (\Throwable $e) {
+        return back()->with('error', 'Failed to load saved reviews: ' . $e->getMessage());
+    }
+}
 
 
-public function index($businessId)
+
+public function index($businessId , $platformId)
 {
     try {
         $business = Business::findOrFail($businessId);
-        $platform = $business->platforms()->where('name', 'Google Business')->first();
+        $platform = Platform::findOrFail($platformId);
 
         if (!$platform || !$platform->credentials) {
             return back()->with('error', 'Google Business not connected yet.');
@@ -106,3 +157,5 @@ public function index($businessId)
 
 
 }
+
+
