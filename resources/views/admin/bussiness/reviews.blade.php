@@ -162,6 +162,8 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  @if(isset($review))
+
   <script>
     const replyModal = document.getElementById('replyModal');
     replyModal.addEventListener('show.bs.modal', function(event) {
@@ -177,6 +179,8 @@
       form.action = "{{ route('reviews.reply', ['business' =>  $review['business_id'], 'review' => 'REVIEW_ID']) }}".replace('REVIEW_ID', reviewId);
     });
   </script>
+  @endif
+
 </body>
 
 </html>
