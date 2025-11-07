@@ -35,8 +35,8 @@
                         <span class="material-symbols-outlined text-primary" style="visibility:hidden;">arrow_back</span>
                         <noscript><span>&rsaquo;</span></noscript> Back
                     </a>
-                    <a href="{{ route('platform.create' , [$business->id]) }}" class="button button-outline-primary button-round" >
-                         Create New Platform
+                    <a href="{{ route('platform.create' , [$business->id]) }}" class="button button-outline-primary button-round">
+                        Create New Platform
                     </a>
 
 
@@ -47,7 +47,7 @@
                 @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
-             
+
 
                 <div class="transaction-table shadow-sm">
                     <table class="table">
@@ -87,19 +87,20 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">Disconnect</button>
                                         </form>
-                                         <a href="{{ route('platform.google.connect', [$business->id, $platform->id]) }}" class="btn btn-success btn-sm">
-                                           Get Reviews
+                                        <a href="{{ route('reviews.index', [$business->id, $platform->id]) }}" class="btn btn-success btn-sm">
+                                            Get Reviews
                                         </a>
-
+                                        <a href="{{ route('platform.google.profiles', [$business->id, $platform->id]) }}" class="btn btn-primary btn-sm">
+                                            View Profiles
+                                        </a>
                                     </div>
                                     @else
                                     <a href="{{ route('platform.google.connect', [$business->id, $platform->id]) }}" class="btn btn-warning btn-sm">
                                         Connect
                                     </a>
-
-
                                     @endif
                                 </td>
+
 
                             </tr>
                             @empty

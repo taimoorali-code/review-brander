@@ -50,6 +50,8 @@ public function getAllSavedReviews()
         $decodedReviews = $reviews->map(function ($review) {
             $data = json_decode($review->raw_data, true) ?? [];
             $data['business_name'] = $review->business->name ?? 'Unknown';
+            $data['business_id'] = $review->business->id ?? '1';
+
             return $data;
         });
 
@@ -153,6 +155,33 @@ public function index($businessId , $platformId)
     }
 
     return back()->with('success', 'Reply posted successfully!');
+}
+
+public function showReplies($businessId, $reviewId)
+{
+    // Get business and its review from DB
+    $business = Business::findOrFail($businessId);
+
+    $review = Review::where('business_id', $businessId)
+        ->where('review_id', $reviewId)
+        ->first();
+
+    if (!$review) {
+        return back()->with('error', 'Review not found in database.');
+    }
+
+    // Decode raw_data JSON to extract reply info
+    $data = json_decode($review->raw_data, true);
+    $replies = [];
+
+    if (isset($data['reviewReply'])) {
+        // API sometimes returns single object, sometimes array
+        $replies = is_array($data['reviewReply']) && array_is_list($data['reviewReply'])
+            ? $data['reviewReply']
+            : [$data['reviewReply']];
+    }
+
+    return view('admin.bussiness.replyview', compact('business', 'review', 'replies'));
 }
 
 

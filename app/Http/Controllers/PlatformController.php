@@ -9,6 +9,7 @@ use App\Models\Business;
 use App\Services\GoogleAuthService;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class PlatformController extends Controller
 {
@@ -105,6 +106,16 @@ class PlatformController extends Controller
             ->route('platform.index', $business->id)
             ->with('success', 'Platform updated successfully.');
     }
+    public function showProfiles($businessId, $platformId)
+{
+    $platform = Platform::where('business_id', $businessId)->findOrFail($platformId);
+
+    // Assuming JSON stored like: { "profiles": [ { "account": {...}, "locations": [...] } ] }
+    $profiles = json_decode($platform->extra_data, true);
+
+    return view('admin.platform.profiles', compact('platform', 'profiles'));
+}
+
 
     /**
      * Disconnect (soft update).
@@ -123,33 +134,51 @@ class PlatformController extends Controller
 
 
 
-
-public function connectGoogle($businessId, $platformId)
+public function connectGoogle($businessId)
 {
-    $google = new GoogleAuthService($businessId, $platformId);
-    $authUrl = $google->getAuthUrl();
-    return redirect($authUrl);
+    // save businessId in session temporarily
+    session(['google_connect_business_id' => $businessId]);
+
+    $google = new \App\Services\GoogleAuthService();
+    return redirect($google->getAuthUrl());
 }
 
-public function googleCallback(Request $request, $businessId, $platformId)
+
+public function googleCallback(Request $request)
 {
-    $google = new GoogleAuthService($businessId, $platformId);
+    $businessId = session('google_connect_business_id');
+    session()->forget('google_connect_business_id');
+
+    if (!$businessId) {
+        return redirect()->route('business.index')->withErrors('Business session expired, please try again.');
+    }
+
+    $google = new \App\Services\GoogleAuthService();
     $token = $google->handleCallback($request->code);
 
-    $business = Business::findOrFail($businessId);
-    $platform = $business->platforms()->findOrFail($platformId);
+    // ✅ Create or update platform after getting token
+    $business = \App\Models\Business::findOrFail($businessId);
+    $platform = $business->platforms()->updateOrCreate(
+        ['name' => 'Google'],
+        [
+            'credentials' => $token,
+            'status' => 'connected',
+            'connected_on' => now(),
+        ]
+    );
 
-    // ✅ Update credentials instead of creating new
-    $platform->update([
-        'credentials' => $token,
-        'status' => 'connected',
-        'connected_on' => now(),
-    ]);
+    // ✅ Fetch GMB profiles right after
+    $googleBusiness = new \App\Services\GoogleBusinessService($token);
+    $profiles = $googleBusiness->getAllProfiles();
+    Log::info('Fetched GMB profiles: ', ['profiles' => $profiles]);
+
+    $platform->update(['extra_data' => json_encode(['profiles' => $profiles])]);
 
     return redirect()
         ->route('platform.index', $businessId)
-        ->with('success', $platform->name . ' reconnected successfully!');
+        ->with('success', 'Google connected successfully! Profiles fetched.');
 }
+
 
 
 

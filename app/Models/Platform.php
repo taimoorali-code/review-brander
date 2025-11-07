@@ -16,6 +16,7 @@ class Platform extends Model
         'status',
         'connected_on',
         'credentials',
+        'extra_data',
     ];
 
     protected $casts = [

@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
         // Reviews
         Route::get('reviews/{platform}', [ReviewController::class, 'index'])->name('reviews.index');
         Route::post('reviews/{review}/reply', [ReviewController::class, 'reply'])->name('reviews.reply');
+        Route::get('reviews/{reviewId}/replies', [ReviewController::class, 'showReplies'])->name('reviews.replies.view');
 
         // Google Connect
         Route::get('platform/{platform}/google/connect', [PlatformController::class, 'connectGoogle'])
@@ -55,6 +56,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('platform/{platform}/google/callback', [PlatformController::class, 'googleCallback'])
             ->name('platform.google.callback');
     });
+    Route::get('/business/{businessId}/google/connect', [PlatformController::class, 'connectGoogle'])->name('platform.google.connect');
+    Route::get('/google/callback', [PlatformController::class, 'googleCallback'])->name('platform.google.callback');
+
+    Route::get('/business/{business}/platform/{platform}/profiles', [PlatformController::class, 'showProfiles'])
+        ->name('platform.google.profiles');
+
 
     // -----------------------------
     // ✅ All Reviews (Global)
@@ -65,4 +72,4 @@ Route::middleware(['auth'])->group(function () {
 // -----------------------------
 // ✅ Auth Routes
 // -----------------------------
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

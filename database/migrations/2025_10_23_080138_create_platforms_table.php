@@ -19,6 +19,7 @@ return new class extends Migration
         $table->enum('status', ['connected', 'disconnected'])->default('disconnected');
         $table->timestamp('connected_on')->nullable();
         $table->json('credentials')->nullable(); // for tokens or API keys (future use)
+        $table->json('extra_data')->nullable(); // for tokens or API keys (future use)
         $table->timestamps();
     });
 }
